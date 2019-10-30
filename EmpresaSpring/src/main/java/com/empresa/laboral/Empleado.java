@@ -17,6 +17,8 @@ public class Empleado {
 	
 
 
+	public Empleado() {	}
+
 	public Empleado(String nombre, String dni, char sexo, int categoria, int anyos) throws DatosNoCorrectosException {
 		this.dni = dni;
 		this.nombre = nombre;
