@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Empleado</title>
 </head>
 <body>
 		
@@ -18,19 +18,14 @@
 			<td>Categoria: </td>
 			<td>Años: </td>
 		</tr>
-		<c:forEach var="emp" items="${list}">
 			<tr>
 				<td>${emp.nombre}</td>
 				<td>${emp.dni}</td>
 				<td>${emp.sexo}</td>
 				<td>${emp.categoria}</td>
 				<td>${emp.anyos}</td>
-			</tr>
-		</c:forEach>
-		
-		
+			</tr>	
 	</table>
 	
 	<a href="/"><button type="submit">Pagina principal</button></a>
 </body>
-</html>

@@ -2,7 +2,10 @@ package com.empresa.laboral;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Entity
 @Table(name="Empleado")
@@ -15,18 +18,23 @@ public class Empleado {
 	private int categoria;
 	private int anyos;
 	
-
+	@OneToOne(mappedBy = "empleado")
+    private Nomina nomina;
 
 	public Empleado() {	}
 
-	public Empleado(String nombre, String dni, char sexo, int categoria, int anyos) throws DatosNoCorrectosException {
+	
+	
+	public Empleado(String dni, String nombre, char sexo, int categoria, int anyos) {
+		super();
 		this.dni = dni;
 		this.nombre = nombre;
 		this.sexo = sexo;
 		this.categoria = categoria;
 		this.anyos = anyos;
-		
 	}
+
+
 
 	public int getCategoria() {
 		return categoria;
@@ -70,6 +78,14 @@ public class Empleado {
 
 	public void setSexo(char sexo) {
 		this.sexo = sexo;
+	}
+	
+	public Nomina getNomina() {
+		return nomina;
+	}
+
+	public void setNomina(Nomina nomina) {
+		this.nomina = nomina;
 	}
 
 	@Override

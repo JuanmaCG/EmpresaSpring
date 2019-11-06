@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.empresa.laboral.DatosNoCorrectosException;
 import com.empresa.laboral.Empleado;
 import com.empresa.repository.EmpleadoRepository;
 

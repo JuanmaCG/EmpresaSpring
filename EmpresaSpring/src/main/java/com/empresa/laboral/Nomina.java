@@ -1,13 +1,66 @@
 package com.empresa.laboral;
 
-public class Nomina {
+import java.io.Serializable;
 
-	private static final int SUELDO_BASE[] = {50000, 70000, 90000, 110000, 130000, 150000, 170000, 190000, 210000, 230000};
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Nomina")
+public class Nomina implements Serializable {
 	
-	public static int sueldo(Empleado empleado) {
-		
-		return SUELDO_BASE[empleado.getCategoria() -1 ] + 5000 * empleado.getAnyos();
-		
 
+	@Id
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name="dni", referencedColumnName = "dni", unique = true)
+    private Empleado empleado;
+	
+	private int salario;
+	
+	
+	public Nomina() {}
+	
+
+	public Nomina(Empleado emp, int salario) {
+		super();
+		this.empleado = emp;
+		this.empleado.setNomina(this);
+		this.salario = salario;
 	}
+
+
+	
+	
+
+	
+
+	public Empleado getEmp() {
+		return empleado;
+	}
+
+
+
+
+	public void setEmp(Empleado emp) {
+		this.empleado = emp;
+	}
+
+
+	public int getSalario() {
+		return salario;
+	}
+
+	public void setSalario(int salario) {
+		this.salario = salario;
+	}
+
+	
+
+	
+	
 }
