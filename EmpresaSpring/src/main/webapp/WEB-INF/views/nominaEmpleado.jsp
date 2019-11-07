@@ -14,11 +14,11 @@
     <table>
         <tr>
             <td>Dni :</td>
-            <td>${nomina.empleado.dni}</td>
+            <td>${nomina.dni}</td>
         </tr>
         <tr>
             <td>Salario :</td>
-            <td>${nomina.sexo}</td>
+            <td>${nomina.salario}</td>
         </tr>
     </table>
 </body>

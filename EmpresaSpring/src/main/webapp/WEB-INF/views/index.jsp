@@ -14,11 +14,13 @@
 			<li>Ver todos los empleados <input type="submit" value="Mostrar" name="accion"></li>
 		</form>
 		<form action="/nomina" method="get">
-			<li>Ver salario de un empleado especifico <input type="text" name="dni"><input type="submit" value="SalarioEspecifico" name="accion"></li>
+			<li>Ver salario de un empleado especifico <input type="text" name="dni"><input type="submit"></li>
 		</form>
-		<li>Modificar empleado  
-			<a href="altaEmpleados.jsp"><button type="submit">Alta Empelado</button></a>
-		</li>
+		
+			<form action="/updateEmpleado" method="get">
+			<li>Actualizar empleado: <input type="text" name="dni"><input type="submit"></li>
+		</form> 
+		
 		<form action="/altaEmpleados" method="get">
 			<li>Añadir empleado<input type="submit" value="altaEmpleado"></li>
 		</form> 

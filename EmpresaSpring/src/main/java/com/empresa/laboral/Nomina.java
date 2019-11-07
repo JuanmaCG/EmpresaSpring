@@ -16,9 +16,7 @@ public class Nomina implements Serializable {
 	
 
 	@Id
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="dni", referencedColumnName = "dni", unique = true)
-    private Empleado empleado;
+	private String dni;
 	
 	private int salario;
 	
@@ -26,28 +24,20 @@ public class Nomina implements Serializable {
 	public Nomina() {}
 	
 
-	public Nomina(Empleado emp, int salario) {
+	public Nomina(String dni, int salario) {
 		super();
-		this.empleado = emp;
-		this.empleado.setNomina(this);
+		this.dni = dni;
 		this.salario = salario;
 	}
 
 
-	
-	
-
-	
-
-	public Empleado getEmp() {
-		return empleado;
+	public String getDni() {
+		return dni;
 	}
 
 
-
-
-	public void setEmp(Empleado emp) {
-		this.empleado = emp;
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
 

@@ -17,9 +17,6 @@ public class Empleado {
 	private char sexo;
 	private int categoria;
 	private int anyos;
-	
-	@OneToOne(mappedBy = "empleado")
-    private Nomina nomina;
 
 	public Empleado() {	}
 
@@ -79,14 +76,7 @@ public class Empleado {
 	public void setSexo(char sexo) {
 		this.sexo = sexo;
 	}
-	
-	public Nomina getNomina() {
-		return nomina;
-	}
 
-	public void setNomina(Nomina nomina) {
-		this.nomina = nomina;
-	}
 
 	@Override
 	public String toString() {

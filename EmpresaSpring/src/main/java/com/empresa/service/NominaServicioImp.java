@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.empresa.laboral.Empleado;
 import com.empresa.laboral.Nomina;
@@ -12,6 +13,7 @@ import com.empresa.repository.NominaRepository;
 
 import exception.ResourceNotFoundException;
 
+@Service
 public class NominaServicioImp implements NominaServicio{
 
 	private static final int SUELDO_BASE[] = {50000, 70000, 90000, 110000, 130000, 150000, 170000, 190000, 210000, 230000};
@@ -31,7 +33,7 @@ public class NominaServicioImp implements NominaServicio{
 		Optional<Nomina> nomina = nominaRepository.findById(emp.getDni());
 		if(nomina.isPresent()) {
 			Nomina nominaActualizado = nomina.get();
-			nominaActualizado.setEmp(emp);
+			nominaActualizado.setDni(emp.getDni());
 			nominaActualizado.setSalario(sueldo(emp));
 			nominaRepository.save(nominaActualizado);
 			return nominaActualizado;
@@ -44,11 +46,7 @@ public class NominaServicioImp implements NominaServicio{
 	@Override
 	public Nomina findById(String dni) {
 		Optional<Nomina> nomina = nominaRepository.findById(dni);
-		if(nomina.isPresent()) {
-			return nomina.get();
-		}else {
-			throw new ResourceNotFoundException("Empleado no encontrado");
-		}
+		return nomina.orElseThrow();
 
 	}
 
